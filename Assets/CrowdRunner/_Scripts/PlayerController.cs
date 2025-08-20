@@ -41,13 +41,16 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetMouseButton(0))
         {
             float xScreenDifference = Input.mousePosition.x - clickedScreenPosition.x;
-
             xScreenDifference /= Screen.width;
             xScreenDifference *= slideSpeed;
 
-            transform.position = clickedPlayerPosition + Vector3.right * xScreenDifference;
+            // Keep forward position, only update X
+            Vector3 newPos = transform.position;
+            newPos.x = clickedPlayerPosition.x + xScreenDifference;
+            transform.position = newPos;
         }
     }
-    
 
 }
+    
+
