@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class CrowdSystem : MonoBehaviour
 {
+    //Elements
+    [SerializeField] private Transform runnersParent;
+    
+    
+    //Settings
     [SerializeField] private float radius;
     [SerializeField] private float angle;
 
     private void Awake()
     {
-        Debug.Log("000");
+        
         PlaceRunners();
     }
 
@@ -28,10 +33,10 @@ public class CrowdSystem : MonoBehaviour
     private void PlaceRunners()
     {
      
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < runnersParent.childCount; i++)
         {
             Vector3 childLocalPosition = GetRunnerLocalPosition(i);
-            transform.GetChild(i).localPosition = childLocalPosition;
+            runnersParent.GetChild(i).localPosition = childLocalPosition;
         } 
     }
 
