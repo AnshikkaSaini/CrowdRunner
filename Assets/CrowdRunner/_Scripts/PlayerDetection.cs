@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDetection : MonoBehaviour
 {
@@ -30,6 +31,11 @@ public class PlayerDetection : MonoBehaviour
 
                 doors.Disable();
                 crowdSystem.ApplyBonus(bonusType, bonusAmount);
+            }
+            
+            else if (dectectedColliders[i].tag == "FinishLine")
+            {
+                SceneManager.LoadScene(0);
             }
         }
     }
