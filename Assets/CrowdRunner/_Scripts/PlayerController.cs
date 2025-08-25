@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] private CrowdSystem crowdsystem;
+    
     [Header("Settings")] 
     [SerializeField] private float moveSpeed;
-    
-    
+
+    [SerializeField] private float roadWidth;
     
     [Header("Control")] 
     [SerializeField] private float slideSpeed;
@@ -40,16 +43,26 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
+            // Difference in X from initial click
             float xScreenDifference = Input.mousePosition.x - clickedScreenPosition.x;
-            xScreenDifference /= Screen.width;
-            xScreenDifference *= slideSpeed;
+            xScreenDifference /= Screen.width;   // normalize
+            xScreenDifference *= slideSpeed;     // scale by sensitivity
 
-            // Keep forward position, only update X
-            Vector3 newPos = transform.position;
-            newPos.x = clickedPlayerPosition.x + xScreenDifference;
-            transform.position = newPos;
+            // Apply drag offset relative to the starting position
+            float targetX = clickedPlayerPosition.x + xScreenDifference;
+
+            // Clamp inside road
+            float minX = -roadWidth / 2 + crowdsystem.GetCrowdRadius();
+            float maxX = roadWidth / 2 - crowdsystem.GetCrowdRadius();
+            targetX = Mathf.Clamp(targetX, minX, maxX);
+
+            // Update player X position
+            Vector3 position = transform.position;
+            position.x = targetX;
+            transform.position = position;
         }
     }
+
 
 }
     
