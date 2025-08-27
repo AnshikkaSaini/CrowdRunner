@@ -6,6 +6,8 @@ public class EnemyGroup : MonoBehaviour
 {
     [SerializeField] private Enemy enemyPrefab;
     [SerializeField]private int amount;
+
+    [SerializeField] private Transform enemiesParents;
     //Settings
     
     [SerializeField] private float radius;
@@ -27,8 +29,8 @@ public class EnemyGroup : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Vector3 enemyLocalPosition = GetRunnerLocalPosition(i);
-            Vector3 enemyWorldPosition = transform.TransformPoint(enemyLocalPosition);
-            Instantiate(enemyPrefab, enemyWorldPosition, Quaternion.identity,transform);
+            Vector3 enemyWorldPosition = enemiesParents.TransformPoint(enemyLocalPosition);
+            Instantiate(enemyPrefab, enemyWorldPosition, Quaternion.identity,enemiesParents);
         }
     }
     
