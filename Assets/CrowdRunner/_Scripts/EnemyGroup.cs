@@ -30,7 +30,7 @@ public class EnemyGroup : MonoBehaviour
         {
             Vector3 enemyLocalPosition = GetRunnerLocalPosition(i);
             Vector3 enemyWorldPosition = enemiesParents.TransformPoint(enemyLocalPosition);
-            Instantiate(enemyPrefab, enemyWorldPosition, Quaternion.identity,enemiesParents);
+            Instantiate(enemyPrefab, enemyWorldPosition, Quaternion.Euler(0,180,0), enemiesParents);
         }
     }
     
