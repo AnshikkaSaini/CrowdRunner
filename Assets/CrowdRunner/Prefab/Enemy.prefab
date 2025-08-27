@@ -297,10 +297,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5495544800622405585}
   - component: {fileID: 4530005368356155493}
-  - component: {fileID: 4253793927612998525}
-  - component: {fileID: 7520046082798379138}
+  - component: {fileID: -1248360855637456925}
+  - component: {fileID: 754136210090696910}
   m_Layer: 0
-  m_Name: Runner
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,15 +314,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283782681010596756}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.28, z: -8.01}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 43003671202637810}
   - {fileID: 4551134649841536813}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &4530005368356155493
 Animator:
   serializedVersion: 5
@@ -344,7 +344,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4253793927612998525
+--- !u!114 &-1248360855637456925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,10 +353,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1283782681010596756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6cb56acf7ac824b84fb963366214cb, type: 3}
+  m_Script: {fileID: 11500000, guid: b3da9eaa3c82b0748828204ec8ff948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &7520046082798379138
+  searchRadius: 80
+  moveSpeed: 51
+--- !u!136 &754136210090696910
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,12 +375,12 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 55.71
-  m_Height: 252.1
+  m_Radius: 21.88
+  m_Height: 137.25
   m_Direction: 1
-  m_Center: {x: 0, y: 99.1, z: 13.5}
+  m_Center: {x: 0, y: 122.1, z: 0}
 --- !u!1 &1394036426955274783
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +570,8 @@ Transform:
   m_LocalPosition: {x: -0.000000009778857, y: 21.055786, z: 0.00000034748794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6935392178689626412}
   m_Father: {fileID: 5060611824591314316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3129882913207756528
@@ -823,7 +826,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8296259737735795232}
-  - {fileID: 6935392178689626412}
   m_Father: {fileID: 8654283233562065756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3773708411180943362
@@ -1386,7 +1388,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a894b8e5278fd24cace355a4d946004, type: 2}
+  - {fileID: 2100000, guid: 86d9d71915e7f984abf4ebbf20ec746c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1495,8 +1497,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5133627107656281872}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.26887885, y: -0.7934622, z: 0.22042117, w: 0.49953616}
-  m_LocalPosition: {x: 31.981888, y: 6.0948486, z: 106.60918}
+  m_LocalRotation: {x: -0.095514536, y: -0.05084112, z: 0.024501186, w: 0.99382687}
+  m_LocalPosition: {x: 0.00000016299064, y: 24.21, z: -0.0000009556317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1505,7 +1507,7 @@ Transform:
   - {fileID: 8011304065955867800}
   - {fileID: 6094126684025588811}
   - {fileID: 3661317579225436050}
-  m_Father: {fileID: 1827116372675129285}
+  m_Father: {fileID: 2472613295152038154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5334089283050017123
 GameObject:

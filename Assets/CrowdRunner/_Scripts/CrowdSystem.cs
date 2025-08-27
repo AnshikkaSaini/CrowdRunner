@@ -10,40 +10,32 @@ public class CrowdSystem : MonoBehaviour
     [SerializeField] private GameObject runnerPrefab;
     [SerializeField] private PlayerAnimator playerAnimator;
     
-    
     //Settings
     [SerializeField] private float radius;
     [SerializeField] private float angle;
 
     private void Awake()
     {
-        
         PlaceRunners();
     }
     private void PlaceRunners()
     {
-     
         for (int i = 0; i < runnersParent.childCount; i++)
         {
             Vector3 childLocalPosition = GetRunnerLocalPosition(i);
             runnersParent.GetChild(i).localPosition = childLocalPosition;
         } 
     }
-
     private Vector3 GetRunnerLocalPosition(int index)
     {
-      
         float x = radius * Mathf.Sqrt(index) * Mathf.Cos(Mathf.Deg2Rad * index * angle);
-        Debug.Log( x);
         float z = radius * Mathf.Sqrt(index) * Mathf.Sin(Mathf.Deg2Rad * index * angle);
         return new Vector3(x, 0, z);
     }
-
     public float GetCrowdRadius()
     {
         return radius * Mathf.Sqrt(runnersParent.childCount);
     }
-
     public void ApplyBonus(BonusType bonusType, int bonusAmount)
     {
         switch (bonusType)
@@ -64,11 +56,8 @@ public class CrowdSystem : MonoBehaviour
                 int runnersToRemove =  runnersParent.childCount - (runnersParent.childCount / bonusAmount);
                 RemoveRunner(runnersToRemove);
                 break;
-                
         }
-    
     }
-
     private void AddRunners(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -78,7 +67,6 @@ public class CrowdSystem : MonoBehaviour
         playerAnimator.Run();
         PlaceRunners();
     }
-
     private void RemoveRunner(int amount)
     {
         if (amount > runnersParent.childCount)
@@ -92,8 +80,7 @@ public class CrowdSystem : MonoBehaviour
             runnerToDestroy.SetParent(null);
             Destroy(runnerToDestroy.gameObject);
         }
-
-        PlaceRunners(); // Re-arrange after removing
+        PlaceRunners();
     }
-
 }
+
