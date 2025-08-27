@@ -64,9 +64,8 @@ public class Enemy : MonoBehaviour
             targetRunner.position, 
             moveSpeed * Time.deltaTime
         );
-
-
-        if (Vector3.Distance(transform.position, targetRunner.position) < 0.1f)
+        
+        if (Vector3.Distance(transform.position, targetRunner.position) < 10f)
         {
             Destroy(targetRunner.gameObject);
             Destroy(gameObject);
