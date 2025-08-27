@@ -59,13 +59,13 @@ public class CrowdSystem : MonoBehaviour
                 AddRunners(bonusAmount);
                 break;
             
-             case BonusType.Multiplication:
+            case BonusType.Multiplication:
                 int runnerToAdd = (runnersParent.childCount * bonusAmount) - runnersParent.childCount;
                 AddRunners(runnerToAdd);
-                    break;
+                break;
             case BonusType.Difference:
                 RemoveRunner(bonusAmount);
-            break;
+                break;
             
             case BonusType.Division:
                 int runnersToRemove =  runnersParent.childCount - (runnersParent.childCount / bonusAmount);
