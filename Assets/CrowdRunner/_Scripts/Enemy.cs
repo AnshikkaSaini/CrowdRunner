@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float searchRadius;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float distancebtwEnemyandPlayer = .1f;
     private State state;
     private Transform targetRunner;
    
@@ -60,12 +59,14 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        transform.position = Vector3.MoveTowards
-                                (transform.position,
-                                        targetRunner.position, 
-                                        Time.deltaTime);
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetRunner.position, 
+            moveSpeed * Time.deltaTime
+        );
 
-        if (Vector3.Distance(transform.position, targetRunner.position) < distancebtwEnemyandPlayer)
+
+        if (Vector3.Distance(transform.position, targetRunner.position) < 0.1f)
         {
             Destroy(targetRunner.gameObject);
             Destroy(gameObject);
