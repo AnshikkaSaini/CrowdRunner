@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public static PlayerController instance;
     [SerializeField] private CrowdSystem crowdsystem;
+    [SerializeField] private PlayerAnimator playerAnimator;
     
     [Header("Settings")] 
     [SerializeField] private float moveSpeed;
+
+    private bool canMove;
 
     [SerializeField] private float roadWidth;
     
@@ -17,21 +21,56 @@ public class PlayerController : MonoBehaviour
     private Vector3 clickedScreenPosition;
     private Vector3 clickedPlayerPosition;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
-        
+        GameManager.onGameStateChanged += GameStateChangedCallBack;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallBack;
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveForward();
-        ManageControl();
+        if (canMove)
+        {
+            MoveForward();
+            ManageControl();
+        
+        }
+
     }
+
+    private void StartMoving()
+    {
+        canMove = true;
+        playerAnimator.Run();
+    }
+
+    private void StopMoving()
+    {
+        canMove = false;
+        playerAnimator.Idle();
+    }
+
     private void MoveForward()
     {
         transform.position += Vector3.forward * (moveSpeed * Time.deltaTime);
+        
     }
 
     private void ManageControl()
@@ -61,6 +100,15 @@ public class PlayerController : MonoBehaviour
             position.x = targetX;
             transform.position = position;
         }
+    }
+
+    private void GameStateChangedCallBack(GameManager.GameState gameState)
+    {
+        if (gameState == GameManager.GameState.Game)
+        {
+            StartMoving();
+        }
+        
     }
 
 
