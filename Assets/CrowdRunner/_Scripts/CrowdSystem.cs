@@ -8,6 +8,7 @@ public class CrowdSystem : MonoBehaviour
     //Elements
     [SerializeField] private Transform runnersParent;
     [SerializeField] private GameObject runnerPrefab;
+    [SerializeField] private PlayerAnimator playerAnimator;
     
     
     //Settings
@@ -19,18 +20,6 @@ public class CrowdSystem : MonoBehaviour
         
         PlaceRunners();
     }
-
-    void Start()
-    {
-     
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void PlaceRunners()
     {
      
@@ -86,7 +75,8 @@ public class CrowdSystem : MonoBehaviour
         {
             Instantiate(runnerPrefab, runnersParent);
         }
-        PlaceRunners(); // Re-arrange after adding
+        playerAnimator.Run();
+        PlaceRunners();
     }
 
     private void RemoveRunner(int amount)

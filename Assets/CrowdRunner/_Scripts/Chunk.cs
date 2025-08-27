@@ -32,5 +32,6 @@ public class Chunk : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position, size);
     }
-    
+
+   
 }
