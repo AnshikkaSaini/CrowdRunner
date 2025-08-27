@@ -10,12 +10,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject  levelCompletePanel;
     
     [SerializeField] private Slider progressBar;
     [SerializeField] private TextMeshProUGUI levelText;
     void Start()
     {
         progressBar.value = 0;
+        menuPanel.SetActive(true);
         gamePanel.SetActive(false);
         gameOverPanel.SetActive(false);
   
@@ -35,6 +37,18 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         UpdateProgressBar();
+    }
+    private void GameStateChangedCallBack(GameManager.GameState gameState)
+    {
+        if (gameState == GameManager.GameState.GameOver)
+        {
+          ShowGameOver();
+        }
+        else if (gameState == GameManager.GameState.LevelComplete)
+        {
+            ShowLevelComplete();
+        }
+        
     }
 
     public void retryButtonPressed()
@@ -65,15 +79,13 @@ public class UIManager : MonoBehaviour
                         .instance.transform.position.z / ChunkManager.
                         instance.GetFinishLineZ();
 
-                progressBar.value = progress;
+        progressBar.value = progress;
 
     }
-    private void GameStateChangedCallBack(GameManager.GameState gameState)
+
+    private void ShowLevelComplete()
     {
-        if (gameState == GameManager.GameState.GameOver)
-        {
-          ShowGameOver();
-        }
-        
+        gamePanel.SetActive(false);
+        levelCompletePanel.SetActive(true);
     }
 }

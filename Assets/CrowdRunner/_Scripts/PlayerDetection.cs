@@ -36,7 +36,9 @@ public class PlayerDetection : MonoBehaviour
             else if (dectectedColliders[i].tag == "FinishLine")
             {
                 PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level")+ 1);
-                SceneManager.LoadScene(0);
+                GameManager.instance.SetGameState(GameManager.GameState.LevelComplete);
+                    
+                //SceneManager.LoadScene(0);
             }
         }
     }

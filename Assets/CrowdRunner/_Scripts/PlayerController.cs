@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
             instance = this;
         }
     }
-
     void Start()
     {
         GameManager.onGameStateChanged += GameStateChangedCallBack;
@@ -42,19 +41,16 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.onGameStateChanged -= GameStateChangedCallBack;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (canMove)
         {
             MoveForward();
             ManageControl();
-        
         }
 
     }
-
     private void StartMoving()
     {
         canMove = true;
@@ -70,9 +66,7 @@ public class PlayerController : MonoBehaviour
     private void MoveForward()
     {
         transform.position += Vector3.forward * (moveSpeed * Time.deltaTime);
-        
     }
-
     private void ManageControl()
     {
         if (Input.GetMouseButtonDown(0))
@@ -101,14 +95,14 @@ public class PlayerController : MonoBehaviour
             transform.position = position;
         }
     }
-
     private void GameStateChangedCallBack(GameManager.GameState gameState)
     {
         if (gameState == GameManager.GameState.Game)
         {
             StartMoving();
         }
-        else if (gameState == GameManager.GameState.GameOver)
+        else if (gameState == GameManager.GameState.GameOver ||
+                 gameState == GameManager.GameState.LevelComplete)
         {
             StopMoving();
         }
