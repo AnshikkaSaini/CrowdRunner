@@ -400,7 +400,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 376869087}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: retryButtonPressed
+        m_MethodName: RetryButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -516,7 +516,7 @@ MonoBehaviour:
   gameoverPanel: {fileID: 1646350629}
   levelCompletePanel: {fileID: 1096347693}
   progressBar: {fileID: 738078714}
-  levelText: {fileID: 1617341752}
+  levelText: {fileID: 602685815}
 --- !u!4 &376869088
 Transform:
   m_ObjectHideFlags: 0
@@ -1496,6 +1496,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4831235aa48e017468fb7b8964bd3d32, type: 2}
   - {fileID: 11400000, guid: 4831235aa48e017468fb7b8964bd3d32, type: 2}
   - {fileID: 11400000, guid: 4831235aa48e017468fb7b8964bd3d32, type: 2}
+  - {fileID: 11400000, guid: ab5ab45ea90363f4aae624b655b854f9, type: 2}
+  - {fileID: 11400000, guid: ab5ab45ea90363f4aae624b655b854f9, type: 2}
 --- !u!1 &1069615060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,7 +2087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crowdsystem: {fileID: 1355557275}
   playerAnimator: {fileID: 1355557277}
-  moveSpeed: 200
+  moveSpeed: 100
   roadWidth: 110
   slideSpeed: 100
 --- !u!4 &1355557274
