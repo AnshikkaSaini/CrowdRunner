@@ -28,18 +28,13 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
-    }
-
-   
-    void Update()
-    {
-        
+        PlayerPrefs.DeleteAll();
     }
 
     public void SetGameState(GameState gameState)
