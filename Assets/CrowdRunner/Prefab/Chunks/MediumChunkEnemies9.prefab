@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2660861105020831124}
   - component: {fileID: 6052853740937070281}
   m_Layer: 0
-  m_Name: MediumChunkEnemies20
+  m_Name: MediumChunkEnemies9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,8 +166,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6750145085042854692, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
       propertyPath: amount
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6750145085042854692, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
+      propertyPath: enemiesParents
+      value: 
+      objectReference: {fileID: 7368232736581959721}
     - target: {fileID: 7557187100777797027, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.010181818

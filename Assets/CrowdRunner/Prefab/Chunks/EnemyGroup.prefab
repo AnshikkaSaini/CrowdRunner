@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: -1248360855637456925, guid: c9e954dfb24b11549b462c5a63c67b84, type: 3}
-  amount: 20
+  amount: 19
   enemiesParents: {fileID: 7076393792476084290}
   radius: 4
   angle: 137

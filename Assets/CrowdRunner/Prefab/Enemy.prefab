@@ -356,7 +356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchRadius: 30
-  moveSpeed: 100
+  moveSpeed: 110
+  rotationSpeed: 5
+  attackRange: 1
 --- !u!1 &1394036426955274783
 GameObject:
   m_ObjectHideFlags: 0
