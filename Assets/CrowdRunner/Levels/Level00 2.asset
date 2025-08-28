@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Level00 2
   m_EditorClassIdentifier: 
   chunks:
+  - {fileID: 3080141170610489032, guid: a50ece01771076f4ea7c30970b3a4844, type: 3}
+  - {fileID: 5738861787537073774, guid: 18a85904b72c0b141bd4f5be6a5f7e06, type: 3}
   - {fileID: 6052853740937070281, guid: f0a8623f08fcee741b32b31242705d78, type: 3}
   - {fileID: 3080141170610489032, guid: 203e7cad6cc34bb47a2215c0762546f0, type: 3}
