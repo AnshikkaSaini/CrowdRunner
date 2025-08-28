@@ -22,7 +22,7 @@ public class CrowdSystem : MonoBehaviour
     private void Update()
     {
         PlaceRunners();
-        if (!GameManager.instance.isGameState())
+        if (!GameManager.instance.IsGameState())
         {
             return;
         }

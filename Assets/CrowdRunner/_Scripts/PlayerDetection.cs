@@ -15,7 +15,7 @@ public class PlayerDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.isGameState())
+        if (GameManager.instance.IsGameState())
         {
              DetectDoors();
         }

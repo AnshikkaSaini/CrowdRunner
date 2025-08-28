@@ -513,10 +513,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 1970755842}
   gamePanel: {fileID: 2057835448}
-  gameOverPanel: {fileID: 1646350629}
+  gameoverPanel: {fileID: 1646350629}
   levelCompletePanel: {fileID: 1096347693}
   progressBar: {fileID: 738078714}
-  levelText: {fileID: 602685815}
+  levelText: {fileID: 1617341752}
 --- !u!4 &376869088
 Transform:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 376869087}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: retryButtonPressed
+        m_MethodName: RetryButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -835,6 +835,7 @@ Transform:
   m_Children:
   - {fileID: 1495305175}
   - {fileID: 376869088}
+  - {fileID: 1039810866}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &682376310
@@ -1447,6 +1448,54 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1039810865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039810866}
+  - component: {fileID: 1039810867}
+  m_Layer: 0
+  m_Name: ChunkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1039810866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039810865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 617439953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1039810867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039810865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3382c5eb71ac2574db97f97000bf6e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 11400000, guid: 4831235aa48e017468fb7b8964bd3d32, type: 2}
+  - {fileID: 11400000, guid: 4831235aa48e017468fb7b8964bd3d32, type: 2}
+  - {fileID: 11400000, guid: 4831235aa48e017468fb7b8964bd3d32, type: 2}
 --- !u!1 &1069615060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,7 +2983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1970755843
 RectTransform:
   m_ObjectHideFlags: 0
