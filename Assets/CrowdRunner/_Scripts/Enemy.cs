@@ -7,10 +7,10 @@ public class Enemy : MonoBehaviour
     private enum State { Idle, Run }
 
     [Header("Settings")]
-    [SerializeField] private float searchRadius = 5f;
+    [SerializeField] private float searchRadius = 1f;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private float attackRange = 1f;
+    [SerializeField] private float attackRange = 10f;
 
     private State state = State.Idle;
     private Transform targetRunner;
