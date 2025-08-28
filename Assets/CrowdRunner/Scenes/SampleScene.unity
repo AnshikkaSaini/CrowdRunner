@@ -2036,7 +2036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crowdsystem: {fileID: 1355557275}
   playerAnimator: {fileID: 1355557277}
-  moveSpeed: 80
+  moveSpeed: 200
   roadWidth: 110
   slideSpeed: 100
 --- !u!4 &1355557274
@@ -2665,7 +2665,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 11400000, guid: 4831235aa48e017468fb7b8964bd3d32, type: 2}
-  finishLine: {fileID: 4460716077561879568, guid: 203e7cad6cc34bb47a2215c0762546f0, type: 3}
 --- !u!1 &1770621752
 GameObject:
   m_ObjectHideFlags: 0

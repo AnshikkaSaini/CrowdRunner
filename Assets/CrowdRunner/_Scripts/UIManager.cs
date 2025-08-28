@@ -22,11 +22,8 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(false);
   
         
-        levelText.text = "Level " +(ChunkManager.instance.GetLevel() + 1);
+        levelText.text = "Level " +(ChunkManager.instance.GetLevel()+1);
         Debug.Log("Current Level: " + ChunkManager.instance.GetLevel() );
-        
-        GameManager.onGameStateChanged += GameStateChangedCallBack;
-        
     }
     private void OnDestroy()
     {
