@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyGroup
       objectReference: {fileID: 0}
+    - target: {fileID: 6750145085042854692, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
+      propertyPath: amount
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7557187100777797027, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.37333333
@@ -309,6 +313,14 @@ PrefabInstance:
     - target: {fileID: 5502934175675959592, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
       propertyPath: m_Name
       value: EnemyGroup (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750145085042854692, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
+      propertyPath: angle
+      value: 137.508
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750145085042854692, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
+      propertyPath: amount
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7557187100777797027, guid: 95c095bace0c29c4b9540e6034fad756, type: 3}
       propertyPath: m_LocalScale.z
