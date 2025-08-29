@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class HapticsManager : MonoBehaviour
 {
-
+    private bool haptics = true;
     void Start()
     {
         PlayerDetection.onDoorHit += Haptic;
         Enemy.onRunnerDie += Haptic;
-        GameManager.onGameStateChanged += GameStateChanged; 
+        GameManager.onGameStateChanged += GameStateChanged;
     }
 
     private void OnDestroy()
@@ -19,9 +19,10 @@ public class HapticsManager : MonoBehaviour
         Enemy.onRunnerDie -= Haptic;
         GameManager.onGameStateChanged -= GameStateChanged;
     }
-    
+
     private void Haptic()
     {
+        if(haptics)
         Taptic.Light();
     }
 
@@ -29,11 +30,21 @@ public class HapticsManager : MonoBehaviour
     {
         if (gameState == GameManager.GameState.LevelComplete)
         {
-           Haptic();
+            Haptic();
         }
         else if (gameState == GameManager.GameState.GameOver)
         {
-           Haptic();
+            Haptic();
         }
     }
+
+    public void DisableHaptic()
+    {
+        haptics = false;
+    }
+    public void EnableHaptic()
+    {
+        haptics = true;
+    }
+
 }
