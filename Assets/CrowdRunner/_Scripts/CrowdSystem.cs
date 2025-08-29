@@ -16,8 +16,23 @@ public class CrowdSystem : MonoBehaviour
 
     private void Awake()
     {
-        PlaceRunners();
+        
     }
+
+    private void Update()
+    {
+        PlaceRunners();
+        if (!GameManager.instance.IsGameState())
+        {
+            return;
+        }
+        if (runnersParent.childCount <= 0)
+        {
+            GameManager.instance.SetGameState(GameManager.GameState.GameOver);
+        }
+
+    }
+
     private void PlaceRunners()
     {
         for (int i = 0; i < runnersParent.childCount; i++)
@@ -44,13 +59,13 @@ public class CrowdSystem : MonoBehaviour
                 AddRunners(bonusAmount);
                 break;
             
-             case BonusType.Multiplication:
+            case BonusType.Multiplication:
                 int runnerToAdd = (runnersParent.childCount * bonusAmount) - runnersParent.childCount;
                 AddRunners(runnerToAdd);
-                    break;
+                break;
             case BonusType.Difference:
                 RemoveRunner(bonusAmount);
-            break;
+                break;
             
             case BonusType.Division:
                 int runnersToRemove =  runnersParent.childCount - (runnersParent.childCount / bonusAmount);

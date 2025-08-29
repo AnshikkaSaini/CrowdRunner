@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerDetection : MonoBehaviour
 {
     [SerializeField] private CrowdSystem crowdSystem;
-    // Start is called before the first frame update
+    /*---Events---*/
+    public static Action onDoorHit;
+    
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        DetectDoors();
+        if (GameManager.instance.IsGameState())
+        {
+             DetectDoors();
+        }
+
     }
 
     private void DetectDoors()
@@ -30,13 +36,16 @@ public class PlayerDetection : MonoBehaviour
                 BonusType bonusType =    doors.GetBonusType(transform.position.x);
 
                 doors.Disable();
+                onDoorHit?.Invoke();
                 crowdSystem.ApplyBonus(bonusType, bonusAmount);
             }
             
             else if (dectectedColliders[i].tag == "FinishLine")
             {
                 PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level")+ 1);
-                SceneManager.LoadScene(0);
+                GameManager.instance.SetGameState(GameManager.GameState.LevelComplete);
+                    
+                //SceneManager.LoadScene(0);
             }
         }
     }

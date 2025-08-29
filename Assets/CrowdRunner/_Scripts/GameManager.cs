@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private GameState gameState;
 
     public static Action <GameState> onGameStateChanged;
-
+    public int currentLevel = 1;
     public enum GameState
     {
         Menu,
@@ -28,17 +28,14 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         
-    }
-
-   
-    void Update()
-    {
         
     }
 
@@ -48,7 +45,7 @@ public class GameManager : MonoBehaviour
         onGameStateChanged?.Invoke(gameState);
     }
 
-    public bool isGameState()
+    public bool IsGameState()
     {
         return gameState == GameState.Game;
     }
