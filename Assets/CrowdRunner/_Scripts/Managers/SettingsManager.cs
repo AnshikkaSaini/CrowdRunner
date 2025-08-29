@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,13 @@ public class SettingsManager : MonoBehaviour
     /*---SoundState---*/
     private bool soundsState = true;
     private bool hapticsState = true ;
-    
-    
+
+    private void Awake()
+    {
+        soundsState = PlayerPrefs.GetInt("sounds", 1) == 1;
+        hapticsState = PlayerPrefs.GetInt("haptics", 1) == 1;
+    }
+
     void Start()
     {
        Setup();
@@ -81,6 +87,7 @@ public class SettingsManager : MonoBehaviour
         }
 
        hapticsState = !hapticsState;
+       PlayerPrefs.SetInt("haptics", hapticsState?1:0 );
     }
     public void ChangeSoundState()
     {
@@ -94,6 +101,8 @@ public class SettingsManager : MonoBehaviour
         }
 
         soundsState = !soundsState;
+        PlayerPrefs.SetInt("sounds", soundsState?1:0 );
+       
     }
 
     

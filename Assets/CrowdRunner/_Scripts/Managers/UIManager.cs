@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject gameoverPanel;
     [SerializeField] private GameObject levelCompletePanel;
+    [SerializeField] private GameObject settingsPanel;
 
     [SerializeField] private Slider progressBar;
     [SerializeField] private TextMeshProUGUI levelText;
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
         menuPanel.SetActive(true);
         gamePanel.SetActive(false);
         gameoverPanel.SetActive(false);
+        settingsPanel.SetActive(false);
 
         levelText.text = "Level " + (ChunkManager.instance.GetLevel() + 1);
 
