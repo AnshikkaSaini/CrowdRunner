@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2660861105020831124}
   - component: {fileID: 6052853740937070281}
   m_Layer: 0
-  m_Name: MediumChunk00
+  m_Name: MediumChunkDoors 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1024048676175785031, guid: 92f3a4259b9f835409838c31e4e28d91, type: 3}
       propertyPath: rightDoorBonusAmount
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1811387912113332536, guid: 92f3a4259b9f835409838c31e4e28d91, type: 3}
       propertyPath: m_LocalPosition.x

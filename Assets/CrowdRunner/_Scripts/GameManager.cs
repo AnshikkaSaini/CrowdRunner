@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private GameState gameState;
 
     public static Action <GameState> onGameStateChanged;
-
+    public int currentLevel = 1;
     public enum GameState
     {
         Menu,
@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PlayerPrefs.DeleteAll();
+        
+        
     }
 
     public void SetGameState(GameState gameState)

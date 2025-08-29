@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Enemy : MonoBehaviour
-{
+{  
+    /*____State Management___*/
     private enum State { Idle, Run }
-
-    [Header("Settings")]
+    private State state = State.Idle;
+    
+    /*____Configurations___*/
     [SerializeField] private float searchRadius = 1f;
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float attackRange = 10f;
 
-    private State state = State.Idle;
+    /*____Run Time References___*/
     private Transform targetRunner;
     private Animator animator;
+    
+    /*____Events___*/
+
+    public static Action onRunnerDie;
 
     void Start()
     {
@@ -97,6 +104,7 @@ public class Enemy : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetRunner.position) <= attackRange)
         {
+            onRunnerDie?.Invoke();
             Destroy(targetRunner.gameObject);
             Destroy(gameObject);
         }
