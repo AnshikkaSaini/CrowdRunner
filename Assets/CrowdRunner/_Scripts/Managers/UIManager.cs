@@ -81,4 +81,15 @@ public class UIManager : MonoBehaviour
         float progress = PlayerController.instance.transform.position.z / ChunkManager.instance.GetFinishLineZ();
         progressBar.value = progress;
     }
+
+    public void ShowSettingsPanel()
+    {
+        settingsPanel.SetActive(true);
+    }
+
+    public void HideSettingsPanel()
+    {
+        settingsPanel.SetActive(false);
+    }
+
 }
