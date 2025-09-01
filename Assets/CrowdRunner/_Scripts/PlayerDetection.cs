@@ -9,6 +9,7 @@ public class PlayerDetection : MonoBehaviour
     [SerializeField] private CrowdSystem crowdSystem;
     /*---Events---*/
     public static Action onDoorHit;
+    public static Action onCoinCollected;
     
     void Start()
     {
@@ -54,8 +55,9 @@ public class PlayerDetection : MonoBehaviour
             {
                 
                 Destroy(detectedColliders[i].gameObject);
-
+                onCoinCollected?.Invoke();
                 DataManager.instance.AddCoins(1);
+                
             }
 
         }

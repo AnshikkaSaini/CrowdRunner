@@ -11,10 +11,12 @@ public class SoundsManager : MonoBehaviour
     [SerializeField] private AudioSource runnerDieSound;
     [SerializeField] private AudioSource levelCompleteSound;
     [SerializeField] private AudioSource gameOverSound;
+    [SerializeField] private AudioSource coinCollectedSound;
   
     void Start()
     {
         PlayerDetection.onDoorHit += PlayDoorHitSound;
+        PlayerDetection.onCoinCollected += PlayCoinCollectedSound;
         GameManager.onGameStateChanged += GameStateChanged;
         Enemy.onRunnerDie += PlayRunnerDieSound;
 
@@ -23,6 +25,7 @@ public class SoundsManager : MonoBehaviour
     private void OnDestroy()
     {
             PlayerDetection.onDoorHit -= PlayDoorHitSound;
+            PlayerDetection.onCoinCollected -= PlayCoinCollectedSound;
             GameManager.onGameStateChanged -= GameStateChanged;
             Enemy.onRunnerDie -= PlayRunnerDieSound;
     }
@@ -30,6 +33,12 @@ public class SoundsManager : MonoBehaviour
     private void PlayDoorHitSound()
     {
         doorHitSound.Play();
+    }
+
+    private void PlayCoinCollectedSound()
+    {
+        
+        coinCollectedSound.Play();
     }
 
     private void GameStateChanged(GameManager.GameState gameState)
@@ -55,7 +64,8 @@ public class SoundsManager : MonoBehaviour
         doorHitSound.volume = 0;   
         runnerDieSound.volume = 0;    
         levelCompleteSound.volume = 0;
-        gameOverSound.volume = 0;    
+        gameOverSound.volume = 0;
+        coinCollectedSound.volume = 0;
     }
     public void EnableSounds()
     {
@@ -64,6 +74,7 @@ public class SoundsManager : MonoBehaviour
         runnerDieSound.volume = 1;    
         levelCompleteSound.volume = 1;
         gameOverSound.volume = 1;  
+        coinCollectedSound.volume = 1;
     }
 
 
