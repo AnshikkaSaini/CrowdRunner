@@ -51,6 +51,12 @@ public class CrowdSystem : MonoBehaviour
     {
         return radius * Mathf.Sqrt(runnersParent.childCount);
     }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, GetCrowdRadius());
+    }
+
     public void ApplyBonus(BonusType bonusType, int bonusAmount)
     {
         switch (bonusType)

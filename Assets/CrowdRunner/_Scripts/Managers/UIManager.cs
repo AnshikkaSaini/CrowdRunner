@@ -29,7 +29,9 @@ public class UIManager : MonoBehaviour
         levelText.text = "Level " + (ChunkManager.instance.GetLevel() + 1);
 
         GameManager.onGameStateChanged += GameStateChangedCallback;
+
     }
+    
 
     private void OnDestroy()
     {

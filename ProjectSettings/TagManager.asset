@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - FinishLine
+  - Coins
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Coin
   - 
   - 
   - 
