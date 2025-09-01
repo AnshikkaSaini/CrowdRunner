@@ -27,12 +27,12 @@ public class PlayerDetection : MonoBehaviour
 
     private void DetectColliders()
     { 
-        Debug.LogError(crowdSystem.GetCrowdRadius());
+     
         Collider[] detectedColliders = Physics.OverlapSphere(transform.position,crowdSystem.GetCrowdRadius()+ 5);
 
         for (int i = 0; i < detectedColliders.Length; i++)
         {
-            Debug.LogError(detectedColliders[i].tag );
+           
             if (detectedColliders[i].TryGetComponent(out Doors doors))
             {
                 int bonusAmount = doors.GetBonusAmount(transform.position.x);
